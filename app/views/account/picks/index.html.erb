@@ -1,0 +1,27 @@
+<div class="col-md-12">
+  <h2 class="text-center"> Picked time range</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th> Content </th>
+        <th> Group Name </th>
+        <th> Last Update </th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @picks.each do |pick| %>
+        <tr>
+          <td> <%= pick.from %> </td>
+          <td> <%= pick.to %> </td>
+          <td> <%= pick.user.email %> </td>
+        <td><%= link_to 'Show', pick, class: "btn btn-sm btn-default" %></td>
+        <% if current_user && current_user == pick.user %>
+        <td><%= link_to 'Edit', edit_pick_path(pick), class: "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Destroy', pick, class: "btn btn-sm btn-default", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

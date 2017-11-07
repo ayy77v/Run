@@ -1,5 +1,5 @@
 class PicksController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
   before_action :set_pick, only: [:show, :edit, :update, :destroy]
 
   # GET /picks
@@ -18,15 +18,21 @@ class PicksController < ApplicationController
     @pick = Pick.new
   end
 
+
+
   # GET /picks/1/edit
   def edit
+       @pick = Pick.find(params[:id])
+    if current_user != @pick.user
+      redirect_to pick_path, alert: "You have no permission."
+    end
   end
 
   # POST /picks
   # POST /picks.json
   def create
     @pick = Pick.new(pick_params)
-
+     @pick.user = current_user
     respond_to do |format|
       if @pick.save
         format.html { redirect_to @pick, notice: 'Pick was successfully created.' }
@@ -37,6 +43,10 @@ class PicksController < ApplicationController
       end
     end
   end
+
+
+
+
 
   # PATCH/PUT /picks/1
   # PATCH/PUT /picks/1.json
@@ -73,3 +83,5 @@ class PicksController < ApplicationController
       params.require(:pick).permit(:from, :to)
     end
 end
+
+
