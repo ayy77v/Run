@@ -6,6 +6,7 @@ class PicksController < ApplicationController
   # GET /picks.json
   def index
     @picks = Pick.all
+    
   end
 
   # GET /picks/1

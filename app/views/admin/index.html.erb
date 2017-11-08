@@ -18,11 +18,7 @@
         <td><%= pick.from %></td>
         <td><%= pick.to %></td>
          <td> <%= pick.user.email %> </td>
-        <td><%= link_to 'Show', pick, class: "btn btn-sm btn-default" %></td>
-        <% if current_user && current_user == pick.user %>
-        <td><%= link_to 'Edit', edit_pick_path(pick), class: "btn btn-sm btn-default" %></td>
-        <td><%= link_to 'Destroy', pick, class: "btn btn-sm btn-default", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+     <td><button type="button">Add</button> </td>
       </tr>
     <% end %>
   </tbody>

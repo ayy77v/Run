@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  friendfrom: 2017-11-08 14:48:30
+  friendto: 2017-11-08 14:48:30
+  eaddress: MyString
+  stamp: 2017-11-08 14:48:30
+  users: one
+
+two:
+  friendfrom: 2017-11-08 14:48:30
+  friendto: 2017-11-08 14:48:30
+  eaddress: MyString
+  stamp: 2017-11-08 14:48:30
+  users: two
